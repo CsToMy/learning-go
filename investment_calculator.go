@@ -19,8 +19,12 @@ func outputNullValues() {
 	var a int
 	var b float64
 	var c string
+	var d bool
+	var e complex64
 
-	fmt.Print("Int: ", a)
-	fmt.Print("Float: ", b)
-	fmt.Print("String: ", c)
+	fmt.Print("Int: ", a, "\n")
+	fmt.Print("Float: ", b, "\n")
+	fmt.Print("String: ", c, "\n")
+	fmt.Print("Boolean: ", d, "\n")
+	fmt.Print("Complex: ", e, "\n")
 }
