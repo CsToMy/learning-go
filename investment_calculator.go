@@ -9,6 +9,9 @@ func main() {
 	const inflationRate float64 = 2.5
 	investmentAmount, expectedReturnRate, years := 12000.0, 5.5, 5.0
 
+	//fmt.Scan(investmentAmount) // won't work
+	fmt.Scan(&investmentAmount) // passing a pointer instead of a reference
+
 	var futureValue = investmentAmount * math.Pow(1+expectedReturnRate/100.0, years)
 	futureRealValue := futureValue / math.Pow(1+inflationRate/100, years)
 	fmt.Print("Future value: ", futureValue, "\n")
