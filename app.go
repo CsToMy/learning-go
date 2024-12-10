@@ -6,6 +6,10 @@ import (
 )
 
 func main() {
+	investment_calculator()
+}
+
+func investment_calculator() {
 	const inflationRate float64 = 2.5
 
 	var investmentAmount float64

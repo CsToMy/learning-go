@@ -1,3 +1,3 @@
-module example.hu/investment-calculator
+module example.hu/app
 
 go 1.23.4
