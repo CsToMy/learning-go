@@ -7,16 +7,24 @@ import (
 
 func main() {
 	const inflationRate float64 = 2.5
-	investmentAmount, expectedReturnRate, years := 12000.0, 5.5, 5.0
 
-	//fmt.Scan(investmentAmount) // won't work
+	var investmentAmount float64
+	var expectedReturnRate float64 = 2.9 // default value
+	var years float64
+
+	fmt.Print("Investment amount: ")
 	fmt.Scan(&investmentAmount) // passing a pointer instead of a reference
+
+	fmt.Print("Expected return rate: ")
+	fmt.Scan(&expectedReturnRate)
+
+	fmt.Print("Years: ")
+	fmt.Scan(&years)
 
 	var futureValue = investmentAmount * math.Pow(1+expectedReturnRate/100.0, years)
 	futureRealValue := futureValue / math.Pow(1+inflationRate/100, years)
 	fmt.Print("Future value: ", futureValue, "\n")
 	fmt.Print("Future real value: ", futureRealValue, "\n")
-	outputNullValues()
 }
 
 func outputNullValues() {
