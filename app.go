@@ -6,7 +6,26 @@ import (
 )
 
 func main() {
-	investment_calculator()
+	var revenue float64
+	var expenses float64
+	var taxRate float64
+
+	fmt.Print("Revenue: ")
+	fmt.Scan(&revenue)
+
+	fmt.Print("Expenses: ")
+	fmt.Scan(&expenses)
+
+	fmt.Print("Tax rate: ")
+	fmt.Scan(&taxRate)
+
+	EBT := revenue - expenses
+	profit := EBT * (taxRate / 100)
+	ratio := EBT / profit
+
+	fmt.Println("EBT:", EBT)
+	fmt.Println("Profit:", profit)
+	fmt.Println("Ratio:", ratio)
 }
 
 func investment_calculator() {
