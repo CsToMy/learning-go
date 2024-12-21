@@ -23,9 +23,9 @@ func main() {
 	profit := EBT * (1 - taxRate/100)
 	ratio := EBT / profit
 
-	fmt.Println("EBT:", EBT)
-	fmt.Println("Profit:", profit)
-	fmt.Println("Ratio:", ratio)
+	fmt.Printf("EBT: %v\n", EBT) // %v -> placeholder for a "value"
+	fmt.Printf("Profit: %v\n", profit)
+	fmt.Printf("Ratio: %v\n", ratio)
 }
 
 func investment_calculator() {
