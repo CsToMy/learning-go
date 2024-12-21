@@ -23,9 +23,9 @@ func main() {
 	profit := EBT * (1 - taxRate/100)
 	ratio := EBT / profit
 
-	fmt.Printf("EBT: %v\n", EBT) // %v -> placeholder for a "value"
-	fmt.Printf("Profit: %v\n", profit)
-	fmt.Printf("Ratio: %v\n", ratio)
+	fmt.Printf("EBT: %.2f\n", EBT)       // %f -> placeholder for a "double" typed value
+	fmt.Printf("Profit: %.2f\n", profit) // %.2f -> double value with 2 decimals
+	fmt.Printf("Ratio: %.2f\n", ratio)
 }
 
 func investment_calculator() {
