@@ -2,52 +2,41 @@ package main
 
 import (
 	"fmt"
-	"math"
+
+	"example.hu/app/bank"
+	"example.hu/app/investment"
 )
 
 func main() {
-	var revenue float64
-	var expenses float64
-	var taxRate float64
+	fmt.Println("Welcome to the practicing app!")
+	var mainChoice int
 
-	fmt.Print("Revenue: ")
-	fmt.Scan(&revenue)
+	for {
+		fmt.Println("What would you like to do?")
+		printMainOptions()
+		fmt.Scan(&mainChoice)
+		if mainChoice < 1 || mainChoice > 3 {
+			fmt.Println("Invalid choice. Choose a number between 1 and 3.")
+			continue
+		}
 
-	fmt.Print("Expenses: ")
-	fmt.Scan(&expenses)
-
-	fmt.Print("Tax rate: ")
-	fmt.Scan(&taxRate)
-
-	EBT := revenue - expenses
-	profit := EBT * (1 - taxRate/100)
-	ratio := EBT / profit
-
-	fmt.Printf("EBT: %.2f\n", EBT)       // %f -> placeholder for a "double" typed value
-	fmt.Printf("Profit: %.2f\n", profit) // %.2f -> double value with 2 decimals
-	fmt.Printf("Ratio: %.2f\n", ratio)
+		if mainChoice == 1 {
+			bank.Banking()
+		} else if mainChoice == 2 {
+			investment.Investment()
+		} else {
+			break
+		}
+	}
+	fmt.Println("Good bye!")
 }
 
-func investment_calculator() {
-	const inflationRate float64 = 2.5
-
-	var investmentAmount float64
-	var expectedReturnRate float64 = 2.9 // default value
-	var years float64
-
-	fmt.Print("Investment amount: ")
-	fmt.Scan(&investmentAmount) // passing a pointer instead of a reference
-
-	fmt.Print("Expected return rate: ")
-	fmt.Scan(&expectedReturnRate)
-
-	fmt.Print("Years: ")
-	fmt.Scan(&years)
-
-	var futureValue = investmentAmount * math.Pow(1+expectedReturnRate/100.0, years)
-	futureRealValue := futureValue / math.Pow(1+inflationRate/100, years)
-	fmt.Print("Future value: ", futureValue, "\n")
-	fmt.Print("Future real value: ", futureRealValue, "\n")
+func printMainOptions() {
+	fmt.Println("----------------------------")
+	fmt.Println("1. Banking app")
+	fmt.Println("2. Investment app")
+	fmt.Println("3. Exit")
+	fmt.Println("----------------------------")
 }
 
 func outputNullValues() {
