@@ -2,10 +2,16 @@ package bank
 
 import (
 	"fmt"
+
+	fileHandling "example.hu/app/utility/filehandling"
 )
 
 func Banking() {
-	var accountBalance float64 = 1000.44
+	accountBalance, fileReadingError := fileHandling.ReadFloatFromFile("balance.txt")
+	if fileReadingError != nil {
+		panic(fmt.Sprintf("Error reading balance: %v\n", fileReadingError))
+	}
+
 	fmt.Println("Welcome to Go Bank!")
 
 	for {
@@ -20,9 +26,11 @@ func Banking() {
 			break
 		case 2:
 			accountBalance = depositAmount(accountBalance)
+			fileHandling.WriteFloatToFile("balance.txt", accountBalance)
 			break
 		case 3:
 			withDrawAmount(&accountBalance)
+			fileHandling.WriteFloatToFile("balance.txt", accountBalance)
 			break
 		default:
 			fmt.Println("Good bye!")
