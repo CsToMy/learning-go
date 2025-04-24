@@ -6,10 +6,14 @@ import (
 	fileHandling "example.hu/app/utility/filehandling"
 )
 
+const defaultBalance float64 = 1500.5
+
 func Banking() {
 	accountBalance, fileReadingError := fileHandling.ReadFloatFromFile("balance.txt")
 	if fileReadingError != nil {
-		panic(fmt.Sprintf("Error reading balance: %v\n", fileReadingError))
+		fmt.Println(fmt.Sprintf("Error reading balance: %v\n", fileReadingError))
+		fmt.Println("Using the default value for the balance.")
+		accountBalance = defaultBalance
 	}
 
 	fmt.Println("Welcome to Go Bank!")
