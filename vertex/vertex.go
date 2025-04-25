@@ -32,7 +32,7 @@ func (v *Vertex) Abs() float64 {
 }
 
 func (v *Vertex) Distance(w *Vertex) float64 {
-	return math.Sqrt((v.x-w.x)*(v.x-w.x) + (v.y-w.y)*(v.z-w.z) + (v.z-w.z)*(v.z-w.z))
+	return math.Sqrt((w.x-v.x)*(w.x-v.x) + (w.y-v.y)*(w.z-v.z) + (w.z-v.z)*(w.z-v.z))
 }
 
 func (v *Vertex) Scale(s float64) {
